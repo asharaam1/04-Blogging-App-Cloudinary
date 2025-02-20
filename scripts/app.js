@@ -47,13 +47,13 @@ logoutBtn.addEventListener("click", (e) => {
 
 
 // Function to update the profile image source for all elements with the same ID
-function updateProfileImage(url) {
+export function updateProfileImage(url) {
     const profileImages = document.querySelectorAll('#user-profile-img');
     profileImages.forEach(img => {
         img.src = url;
     });
 }
-function updateProfileName(text) {
+export function updateProfileName(text) {
     const userName = document.querySelectorAll('#user-profile-name')
     userName.forEach(img => {
         img.innerHTML = text;
@@ -91,7 +91,7 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
-async function getDataFromFirestore() {
+export async function getDataFromFirestore() {
     let user = null
     const q = query(collection(db, "users"), where("uid", "==", auth.currentUser.uid));
     const querySnapshot = await getDocs(q);

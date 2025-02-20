@@ -13,16 +13,14 @@ const fullName = document.querySelector('#fullName');
 let userProfilePicUrl = ""
 
 let myWidget = cloudinary.createUploadWidget({
-    cloudName: 'your_cloud_name',
-    uploadPreset: 'Your_preset'
+    cloudName: '',  //your_cloud_name
+    uploadPreset: ''   //Your_preset
 }, (error, result) => {
     if (!error && result && result.event === "success") {
         console.log('Done! Here is the image info: ', result.info);
         userProfilePicUrl = result.info.secure_url
     }
-}
-)
-
+})
 document.getElementById("upload_widget").addEventListener("click", function (event) {
     event.stopPropagation()
     myWidget.open();
