@@ -78,7 +78,7 @@ onAuthStateChanged(auth, async (user) => {
 
         loginUser.addEventListener("click", (e) => {
             e.preventDefault();
-            window.location = "singleuser.html"
+            window.location = "dashboard.html"
         })
     } else {
         loginBtn.classList.remove('hidden') //hiding logout btn 
