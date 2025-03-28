@@ -46,8 +46,10 @@ form.addEventListener('submit', event => {
                     uid: user.uid
                 });
                 console.log("Document written with ID: ", docRef.id);
+                alert('Register Successfully');
             } catch (e) {
                 console.error("Error adding document: ", e);
+                alert('Error: ', e);
             }
 
 
