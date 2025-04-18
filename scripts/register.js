@@ -12,6 +12,7 @@ const fullName = document.querySelector('#fullName');
 
 let userProfilePicUrl = ""
 
+//! Cloudnairy Image Upload
 let myWidget = cloudinary.createUploadWidget({
     cloudName: '',  //your_cloud_name
     uploadPreset: ''   //Your_preset

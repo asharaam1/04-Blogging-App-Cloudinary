@@ -91,6 +91,7 @@ onAuthStateChanged(auth, async (user) => {
 });
 
 
+//! User Id Fetch
 export async function getDataFromFirestore() {
     let user = null
     const q = query(collection(db, "users"), where("uid", "==", auth.currentUser.uid));
@@ -102,3 +103,25 @@ export async function getDataFromFirestore() {
     return user
 }
 
+
+//! All Blogs Fetch
+let allUserBlogs = []
+
+export async function getAllBlogs() {
+    
+    const q = query(collection(db, "usersblog"));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        // user = doc.data()
+        allUserBlogs.push(doc.data());
+
+    });
+
+    return allUserBlogs
+}
+
+
+// Call the function and log the result:
+getAllBlogs().then((blogs) => {
+  console.log(blogs); // Logs the data after it's fetched
+});

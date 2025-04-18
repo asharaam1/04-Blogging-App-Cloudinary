@@ -6,7 +6,7 @@ import { collection, getDocs, query, where, addDoc } from "https://www.gstatic.c
 
 
 
-// Elements (continued)
+//! Elements (continued)
 const loginBtn = document.querySelector('#login-btn');
 const loginUser = document.querySelector('#login-user');
 const logoutBtn = document.querySelector('#logout-btn');
@@ -36,7 +36,7 @@ let allBlogs = [];
 
 let uploadedImageUrl = "";
 
-// Cloudinary Upload Widget
+//! Cloudinary Upload Widget
 const myWidget = cloudinary.createUploadWidget({
     cloudName: '',  //your_cloud_name
     uploadPreset: ''   //Your_preset
@@ -55,7 +55,7 @@ document.getElementById("upload_widget").addEventListener("click", function (e) 
 
 let userDataArray = [];
 
-// Form Submission
+//! Form Submission
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const title = document.querySelector("#title").value.trim();
@@ -81,7 +81,7 @@ form.addEventListener("submit", async (e) => {
 console.log(allBlogs);
 
 
-// Fetch User Data
+//! Fetch User Data
 async function loginUserData(uid) {
     userDataArray = [];
     try {
@@ -100,7 +100,7 @@ async function loginUserData(uid) {
     }
 }
 
-// Render User Blogs
+//! Render User Blogs
 export async function renderLoginUserBlogs(userData) {
     console.log(userData);
 
@@ -138,7 +138,7 @@ export async function renderLoginUserBlogs(userData) {
     });
 }
 
-// Logout
+//! Logout
 logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     signOut(auth)
@@ -155,7 +155,7 @@ logoutBtn.addEventListener("click", (e) => {
 
 
 
-// Auth State Change
+//! Auth State Change
 onAuthStateChanged(auth, async (user) => {
     if (user) {
         const uid = user.uid;
