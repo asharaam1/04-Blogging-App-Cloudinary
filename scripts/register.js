@@ -14,8 +14,8 @@ let userProfilePicUrl = ""
 
 //! Cloudnairy Image Upload
 let myWidget = cloudinary.createUploadWidget({
-    cloudName: '',  //your_cloud_name
-    uploadPreset: ''   //Your_preset
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    uploadPreset: process.env.CLOUDINARY_UPLOAD_PRESET
 }, (error, result) => {
     if (!error && result && result.event === "success") {
         console.log('Done! Here is the image info: ', result.info);
